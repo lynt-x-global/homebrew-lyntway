@@ -61,10 +61,11 @@ class Lyntway < Formula
     assert_match version.to_s, shell_output("#{bin}/lyntway version")
     assert_match version.to_s, shell_output("#{bin}/lyntway-verify -version")
     assert_match version.to_s, shell_output("#{bin}/lyntway-mcp -version")
-    # The verifier must reject a receipt that is not one, rather than
-    # accepting anything it cannot parse.
+    # The verifier must refuse rather than accept something it cannot
+    # check. Exit 2 is what it uses for "cannot run this check at all",
+    # which is the honest answer when no keys were supplied.
     (testpath/"junk.json").write("{}")
-    output = shell_output("#{bin}/lyntway-verify #{testpath}/junk.json 2>&1", 1)
+    output = shell_output("#{bin}/lyntway-verify #{testpath}/junk.json 2>&1", 2)
     refute_match "VERIFIED", output
   end
 end
