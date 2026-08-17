@@ -15,22 +15,22 @@ class Lyntway < Formula
   on_macos do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_arm64.tar.gz"
-      sha256 "d33fcf234bf8e272b517294ab57df706d49002b0fc6169939c5c9d516f7aba35"
+      sha256 "51e6d9421a0f033d2227f8824060806ec0f9e6131881c05562ff7d6f746c21de"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_amd64.tar.gz"
-      sha256 "3c7dabffd445c68a4d086fa22ecb238debe3d999f315068bb369022f7764a317"
+      sha256 "7be60ef353e93231e371f5a72eed2fdb8fe54152e795026159b73bb96c4736e8"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_arm64.tar.gz"
-      sha256 "3f36fe38b0af498e6d42500cef60c2ba5ea7f74fc7b62406767bb2b1b615a85c"
+      sha256 "26de31fcac4bb797ce085c7235ab74b1b05e12ebd1e4f94c5fb895d8838dbe36"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_amd64.tar.gz"
-      sha256 "1fc67dd8a952190eb5931f9b02a79ae1699611ecb14118de59edc9bef60b29d8"
+      sha256 "3a0985c11ad405a2418da72694788fa09b58aa0ea0ffdaecb6473b8778f06a86"
     end
   end
 
