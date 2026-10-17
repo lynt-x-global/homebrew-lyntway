@@ -9,28 +9,28 @@
 class Lyntway < Formula
   desc "Prove what your AI did with your data: verify receipts, govern MCP tool results"
   homepage "https://lyntway.com"
-  version "0.6.0"
+  version "0.7.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_arm64.tar.gz"
-      sha256 "34e460ab1cb25dc9f69097dfae6b753e86f8f12058a4844512512d370ad39ca1"
+      sha256 "93ad31a623fb11e3bd855c5444015e964d34a8431e7816df3fd3deebc6dfd992"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_amd64.tar.gz"
-      sha256 "d44f0d3a85a197b3a937c31a8639b11629e2432476a89a446d09416be8df05b3"
+      sha256 "bfdceb9d7c6ef606ca87d64e275ff613923db0f7852b4d6664df93b4f94c296f"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_arm64.tar.gz"
-      sha256 "823d5bca884c0431e1879091f9577abc158d8838111fb65b8d99d323f8f7b642"
+      sha256 "1305ea80f182b9e7a55ad1947e44c2d1efd8bd144e420fb3e8a016572ecac0bc"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_amd64.tar.gz"
-      sha256 "6dc039bd62af00ce988bd46681631eede0c738c27a94c1de20f0b0e4f710c8cc"
+      sha256 "952d351a793cf75cbe3b77fef2242a9bb31143866c985c73ea42f828e54cc651"
     end
   end
 
@@ -40,15 +40,20 @@ class Lyntway < Formula
 
   def caveats
     <<~EOS
-      Two of these need no account:
+      Start here. No account, no network call:
+
+        lyntway          what AI software is on this machine, what your
+                         agents can reach, and which of those have a
+                         credential sitting in the config beside them
+
+      Also with no account:
 
         lyntway-verify   checks a receipt, offline, forever
         lyntway-mcp      governs MCP tool results on this machine
 
-      To point this machine's AI tools at a Lyntway service:
+      To route what is here and start recording what it sends:
 
-        lyntway login
-        lyntway init
+        lyntway connect
 
       It shows you what it found and asks before changing anything.
       Everything it touches is backed up, and 'lyntway undo' reverses it.
