@@ -9,28 +9,28 @@
 class Lyntway < Formula
   desc "Prove what your AI did with your data: verify receipts, govern MCP tool results"
   homepage "https://lyntway.com"
-  version "0.7.0"
+  version "0.8.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_arm64.tar.gz"
-      sha256 "93ad31a623fb11e3bd855c5444015e964d34a8431e7816df3fd3deebc6dfd992"
+      sha256 "fcf30dd56482eaa0a07b46472e157d87232f1b957cf6ffe429204e1735da018d"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_amd64.tar.gz"
-      sha256 "bfdceb9d7c6ef606ca87d64e275ff613923db0f7852b4d6664df93b4f94c296f"
+      sha256 "0ffb7f95109965390d0b876abb40680c4ebe474e1ea338a18c3a1222d2882fc5"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_arm64.tar.gz"
-      sha256 "1305ea80f182b9e7a55ad1947e44c2d1efd8bd144e420fb3e8a016572ecac0bc"
+      sha256 "8f81d969f25d06d9b22d050545bc59028828f4ff5cf89f2745d609876a9c0375"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_amd64.tar.gz"
-      sha256 "952d351a793cf75cbe3b77fef2242a9bb31143866c985c73ea42f828e54cc651"
+      sha256 "cc1a4934c9b4f697b0a779a46bf5cc6823296a556d6394b6ffac3ab3599a24f4"
     end
   end
 
