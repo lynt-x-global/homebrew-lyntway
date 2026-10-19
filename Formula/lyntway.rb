@@ -9,33 +9,33 @@
 class Lyntway < Formula
   desc "Prove what your AI did with your data: verify receipts, govern MCP tool results"
   homepage "https://lyntway.com"
-  version "0.8.2"
+  version "0.8.3"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_arm64.tar.gz"
-      sha256 "3e106900ab466b2a4c23b381d0f18de81f2bb7e5a30ca9b4a984930408516b8d"
+      sha256 "165979a9e4ddbc0d78d85512c79fcda652707a20efd012471639665d3a2a57db"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_darwin_amd64.tar.gz"
-      sha256 "35756b145aab14a48578e74e6c88208099418e4597f7755a78a5ab12ea7f01fa"
+      sha256 "7d7d9cdae5589b8e4a404c644e413ba0aaccc94f08f12730d64a46bd43389f55"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_arm64.tar.gz"
-      sha256 "4434548fdfacb1c52e127b20d01105214a231414a3732c9fd2cc8de870d162ef"
+      sha256 "01df42950e757d5cf5fa6faf4e8b72663b77a5ae4cc7d335cd62efe2f9a5962b"
     end
     on_intel do
       url "https://github.com/lynt-x-global/lyntway-tools/releases/download/v#{version}/lyntway_#{version}_linux_amd64.tar.gz"
-      sha256 "ec1acd7ea0bc8290fe0dc3f5cc7602c070747676e7264be04163792751cbb2dc"
+      sha256 "c0f3d489f445844d713c9660559d396b9b3d9b1c4db4657e8df2e36caa3033f6"
     end
   end
 
   def install
-    bin.install "lyntway", "lyntway-verify", "lyntway-mcp"
+    bin.install "lyntway", "lyntway-verify", "lyntway-mcp", "lyntway-dbgateway"
   end
 
   def caveats
@@ -50,6 +50,9 @@ class Lyntway < Formula
 
         lyntway-verify   checks a receipt, offline, forever
         lyntway-mcp      governs MCP tool results on this machine
+        lyntway-dbgateway  receipts every query an agent runs against
+                         PostgreSQL, MySQL or MongoDB. Content never
+                         leaves the process.
 
       To route what is here and start recording what it sends:
 
@@ -61,11 +64,13 @@ class Lyntway < Formula
   end
 
   test do
-    # Asserts all three are present and report the version they claim to
-    # be. A formula that installs two of three would otherwise pass.
+    # Asserts all four are present and report the version they claim to
+    # be. A formula that installs three of four would otherwise pass —
+    # which is exactly how lyntway-dbgateway went unpublished for months.
     assert_match version.to_s, shell_output("#{bin}/lyntway version")
     assert_match version.to_s, shell_output("#{bin}/lyntway-verify -version")
     assert_match version.to_s, shell_output("#{bin}/lyntway-mcp -version")
+    assert_match version.to_s, shell_output("#{bin}/lyntway-dbgateway -version")
     # The verifier must refuse rather than accept something it cannot
     # check. Exit 2 is what it uses for "cannot run this check at all",
     # which is the honest answer when no keys were supplied.
